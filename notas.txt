@@ -1,0 +1,6 @@
+
+sudo /opt/lampp/lampp start
+
+https://www.apachefriends.org/faq_linux.html
+
+/home/codefuncode/Documentos/Proyectos/PHP-MVC/MVC-master/vistas/modulos/navlateral.php
