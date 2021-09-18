@@ -4,3 +4,6 @@ sudo /opt/lampp/lampp start
 https://www.apachefriends.org/faq_linux.html
 
 /home/codefuncode/Documentos/Proyectos/PHP-MVC/MVC-master/vistas/modulos/navlateral.php
+
+🐘 PHP: Desarrollo profesional [MVC, MYSQL, POO, AJAX, PDO]
+Se trabaja con https://www.youtube.com/watch?v=vGh73eoAXJE&list=PLH_tVOsiVGzlJtytLjp6h6hRpZCxl77-n
