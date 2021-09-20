@@ -1,0 +1,123 @@
+El desarrollo de software no es una idea nueva. Se dice que Ada Lovelace ha escrito el primer programa de computadora a mediados del siglo XIX para el motor analítico, la primera computadora mecánica prototipada por Charles Babbage. Se ha transcurrido mucho tiempo desde entonces, y el desarrollo de software ha crecido en lo que posiblemente es uno de los mayores contribuyentes al desarrollo de nuestra especie. El diseño de buen software es difícil. Implica tener en cuenta todos los aspectos de la solicitud que necesita para construir, y se complica aún más por la necesidad de ser lo suficientemente específica para sus requisitos actuales para realizar el trabajo, mientras que es lo suficientemente genérico como para abordar los problemas futuros. Muchos desarrolladores experimentados han tenido estos problemas y, con el tiempo, han surgido patrones comunes que ayudan a resolverlos. Christopher Alexander, un arquitecto estructural, describió por primera vez los patrones de tal manera que se pueden aplicar al desarrollo de software. Dijo: "Cada patrón describe un problema que se produce una y otra vez en nuestro entorno, y luego describe el núcleo de la solución a ese problema, de tal manera que puede usar esta solución un millón de veces, sin hacerlo nunca. De la misma manera dos veces". Puede haber estado hablando de casas o ciudades, pero sus palabras capturan la esencia de lo que pretendemos hacer al considerar cómo podemos construir un marco sólido, seguro y reutilizable para aplicaciones web.
+
+
+¿Qué es MVC?
+MVC (modelo-vista-controlter) es un patrón de diseño de software construido alrededor de la interconexión de tres tipos principales de componentes, en un lenguaje de programación, como PHP, a menudo con un fuerte enfoque en los paradigmas de programación orientados a objetos (OOP). Los tres tipos de componentes se denominan modelos, vistas y controladores hundidos. Hablemos de ellos individualmente y luego veamos cómo encajan. El modelo es donde se mantiene toda la lógica de negocios de una solicitud. La lógica empresarial puede ser cualquier cosa específica de cómo una aplicación almacena datos, o utiliza servicios de terceros, para cumplir con sus requisitos comerciales. Si la aplicación debe acceder a la información en una base de datos, el código para hacerlo se mantendrá en el modelo. Si se necesita, por ejemplo, para buscar datos de stock o Tweet sobre un nuevo producto, ese código también se mantendrá en el modelo. La vista es donde se mantienen todos los elementos de la interfaz de usuario de nuestra aplicación. Esto puede incluir nuestra marca HTML, hojas de estilo CSS y archivos JavaScript. Cualquier persona que vea o interactúa un usuario con se puede mantener en una vista, y, a veces, lo que ve el usuario es en realidad una combinación de muchas vistas en la misma solicitud. El controlador es el componente que conecta los modelos y las vistas juntas. Los controladores aíslan la lógica empresarial de un modelo de los elementos de la interfaz de usuario de una vista y asa cómo la aplicación responderá a la interacción del usuario en la vista. Los controladores son el primer punto de entrada en este trío de componentes, porque la solicitud se pasa por primera vez a un controlador, que luego instanciará los modelos y las vistas requeridas para cumplir una solicitud a la aplicación. Ver Figura 1-1.
+
+----------------------------------------------------------------------------------------
+Figura 1-1. Modelo-vista-controlador en pocas palabras
+■ ■ NOTA No todas las solicitudes de la aplicación requerirán un modelo o 
+una vista. Los elementos cargados dependen del tipo de solicitud y los 
+recursos necesarios para cumplirlo. La URL solicitada define esto, 
+en un proceso llamado Enrutamiento, que cubriremos en el Capítulo 7. 
+Un controlador podría, por ejemplo, servir solo para alternar el estado 
+de una aplicación, o para devolver los datos desagradables directamente 
+desde un servicio de terceros. En tales casos, ¡no habría necesidad de modelos o vistas!
+----------------------------------------------------------------------------------------
+
+Veamos una aplicación de ejemplo que ilustra el uso de estas clases. Las redes sociales suelen ser simples de usar, pero pueden ser bastante complicadas detrás de las escenas. Si tuviéramos que construir una red social simple, tendríamos que considerar no solo los elementos de la interfaz de usuario, sino también cómo se almacenamos los datos del usuario y cómo reacciona la interfaz de usuario a la entrada del usuario. Tendríamos que considerar los siguientes aspectos:
+
+• Es probable que nuestra red social mantenga los datos del usuario dentro de una base de datos. También deberá acceder a las fotos de los usuarios desde un servicio de terceros, como Flickr. El código para ambas operaciones debe mantenerse en los modelos, ya que estas operaciones se relacionan directamente con nuestros requisitos comerciales.
+
+• Nuestra red social debe ser fácil de usar y atractiva para sus usuarios. Debido a que lo estamos construyendo para la Web, utilizaremos tecnologías de sitio web estándar, como HTML para marcas, hojas de estilo CSS vinculadas externamente y archivos JavaScript vinculados externamente para el comportamiento. Todos estos elementos estarán presentes en puntos de vista.
+
+• Los modelos y vistas de nuestra aplicación deben estar conectados entre sí sin interferir entre sí. Además, la aplicación necesita una forma de responder a la interacción del usuario en las vistas y persistir los datos relevantes a los modelos. Los controladores se utilizan para este propósito. Con suerte, esto ilustra el concepto de una manera que tenga sentido. Estaremos mirando cada parte en mucho más detalles a lo largo de este libro. La Red Social Simple también se utilizará como un ejemplo consistente a medida que desempaquetamos el código requerido para hacer nuestro marco, trabajar.
+
+
+Beneficios de MVC
+No hay ningún punto explicando lo que MVC es sin saber por qué debería usarlo. ¿Recuerdas los patrones de Christopher Alexander que mencioné anteriormente? MVC es uno de los muchos patrones que se explicarán en este libro, pero para comprender la utilidad de este patrón de diseño, debemos mirar hacia los problemas que ayuda a aliviarse. Si piensa en un equipo deportivo, es posible que se dé cuenta de que es esencialmente un gran grupo de jugadores que cumplan con sus roles individuales para conducir al equipo hacia adelante. Los buenos equipos deportivos requieren el esfuerzo de cada jugador que realiza su papel en lo mejor de sus habilidades individuales para conducir al equipo hacia adelante en su conjunto. La web es un campo de juego abierto. Permite a las empresas, tanto grandes como pequeñas, para competir entre sí sin que el tamaño sea un factor en la calidad del trabajo. Esto significa que muchas compañías pequeñas con pequeños grupos de desarrolladores pueden tener la oportunidad de construir aplicaciones web grandes. También significa que muchas empresas grandes pueden tener muchas personas que trabajan en aplicaciones web grandes al mismo tiempo. En toda esta multitarea y / o participación grupal, los aspectos de una solicitud (que deben estar separados) a menudo interfieren entre sí y requieren más tiempo y esfuerzo que estrictamente necesario para conducir hacia adelante. Hay muchos aspectos para cualquier aplicación web complicada. Hay un diseño, que posee el interés del usuario en el producto. Hay una lógica empresarial requerida para hacer cosas prácticas, como artículos de venta de procesos y compradores de facturas. Luego está el proceso continuo de mejora, actualización, fijación de errores y racionalización general de la solicitud. En cualquier aplicación no estructurada, estas áreas tienden a fundirse juntas en un desastre incoherente. Cuando la base de datos debe cambiarse para adaptarse a una nueva línea de productos, o la compañía decida para rebrand, no solo afecta el código que debería. Más desarrolladores deben involucrarse para asegurarse de que los cambios en una parte de la aplicación no rompan de inmediato otras partes de la aplicación. Los cambios que solo deben afectar a una pequeña sección del código que termine de derramarse en todo tipo de áreas extrañas y problemáticas. Este es el problema que MVC busca abordar. Define los contenedores estrictos para todo el código y las características de una aplicación. Cuando los cambios en el código de la base de datos están aislados en un modelo, vistas y controladores no se romperán. Cuando la obra de arte de una aplicación cambia drásticamente, su controlador y modelo estarán a salvo de romper cambios.
+
+
+------------------------------------------------------------------------------
+■ ■ Nota Una buena aplicación basada en MVC necesita más que un buen marco de MVC para tener éxito. 
+Necesita desarrolladores que están preparados para desempeñar las reglas y pensar 
+cuidadosamente donde mantienen su código, en lugar de simplemente arrojarlo en la base de código. 
+Solo podemos diseñar la estructura, al igual que un arquitecto diseñando una hermosa casa. 
+Depende de los desarrolladores que usan nuestro marco para mantener las cosas en orden.
+------------------------------------------------------------------------------
+
+
+Ahora que sabemos más sobre por qué deberíamos estar usando MVC, veamos algunas alternativas populares para escribir nuestro propio marco.
+
+Marcos populares MVC
+Hay muchos grandes marcos de PHP disponibles, pero si limitamos nuestra opinión a solo tres, creo que podemos tener una buena idea de lo que tienen en común, y lo que hace que cada especial. Estos no son los mejores o los únicos marcos de MVC de PHP, sino simplemente una buena sección transversal de los diferentes enfoques para el desarrollo de MVC PHP.
+
+
+
+Codenitor
+CodeIgniter es el primero y más simple de los marcos que estaremos investigando. Es desarrollado y mantenido por Ellislab y se puede describir como un marco de código abierto (aunque, bien controlado) que forma la base para el ExpressionEngine Premium CMS (Sistema de Administración de contenido) de Ellislab.
+
+Ha existido por años, pero sus ideales han cambiado muy poco en todos los años desde que lo usé primero. Se esfuerza por mantener una pequeña huella, la excelente documentación del desarrollador y la alta calidad de código. No disfruta de los mismos niveles de popularidad que algunos de los otros marcos de los que hablaremos, y esto se debe en parte a cómo.
+
+Ellislab ha gestionado la comunidad de CodeIgniter. Recientemente, han comenzado a abordar este problema con nuevas conferencias y personal, y las cosas están buscando este marco. También ha inspirado otros marcos, dando a luz proyectos como Kohanaphp.
+
+-----------------------------------------------------------------
+■ ■ Nota Puede descargar CodeIgniter en http://codeigniter.com. 
+También puede obtener más información sobre Ellislab y ExpressionEngine en http://ellislab.com. 
+Finalmente, puede obtener más información sobre Kohanaphp en http://kohanaframework.org.
+-----------------------------------------------------------------
+
+
+Marco de zend
+Zend Framework es una extensa colección de bibliotecas de código solteramente acopladas que pueden formar la base de una arquitectura de MVC. Zend Framework toma un poco de esfuerzo para comprender y dominar en relación con otros marcos populares de MVC. Es desarrollado por Zend Technologies y disfruta de todos los beneficios de una comunidad grande y estable y una amplia adopción. Considerando que los marcos como Codeigniter se esfuerzan por ser ligeros, favoreciendo solo los elementos esenciales, Zend Framework incluye bibliotecas que ayudan a los desarrolladores a utilizar una amplia gama de servicios y API de terceros.
+
+
+--------------------------------------------------------------------
+■ ■ Nota Puede descargar Zend Framework en http://framework.zend.com. 
+También puedes aprender más sobre Zend en http://zend.com.
+--------------------------------------------------------------------
+
+
+
+
+CakePhp
+CakePhp es posiblemente el más popular de los tres marcos. A diferencia de los dos marcos anteriores, no se rige por ninguna entidad corporativa. Tiene una gran comunidad y es ampliamente adoptada. Favorece la convención sobre la configuración, lo que significa que se asumen y automatizan muchos detalles más finos. Esto es evidente en todas las áreas del marco, y a menudo se encontrará preguntándose cómo CakePhp está haciendo algo que no le pediste que hiciera, tanto bueno como malo. Esto significa que puede desarrollar una aplicación rápidamente, pero también que puede tener dificultades para hacer cambios muy específicos. Incluso se ve en la herramienta de línea de comandos de generación de códigos: hornee. En cuestión de minutos, puede generar una aplicación de trabajo, simplemente siguiendo las indicaciones de línea de comandos y completando los espacios en blanco con los parámetros y comportamientos predeterminados.
+
+------------------------------------------------------------
+■ ■ Nota: puede descargar CAKEPHP en http://cakephp.org.
+------------------------------------------------------------
+
+
+
+
+=========
+
+Patrones de diseño
+Nos centraremos en el patrón de diseño de MVC, y para lograrlo, deberemos usar otros patrones de diseño más simples para las bibliotecas en las que se construye el marco. Los patrones de diseño que revisaremos a menudo se pueden aplicar al desarrollo de procedimientos, pero los estaremos mirando en el contexto de la programación orientada a objetos. Esto significa que estaremos tratando con clases (planos que contienen propiedades y funciones de realización), y cómo interactúan entre sí. Si no está familiarizado con algunos de los conceptos que siguen, es posible que desee referirse a un cebador de idioma, o sitio de referencia.
+
+-----------------------------------------------------------------------
+■ ■ Nota: Si desea saber más sobre la programación orientada a objetos, 
+o cualquiera de las otras palabras clave o conceptos que siguen, 
+puede leer más en http://en.wikipedia.org/wiki/object-oriented_programming.
+-----------------------------------------------------------------------
+
+
+
+Único.
+Cuando construimos software OOP, tratamos con muchas clases. Si bien es ideal para diseñar estas clases de tal manera que muchos casos pueden estar activos simultáneamente, habrá ocasiones en que solo necesitamos prácticamente una instancia de una clase, para un propósito o contexto específico.
+
+
+Singleton es un patrón de diseño que garantiza que una clase solo pueda tener una instancia a la vez. Una clase de singleton tradicional mantiene una instancia de sí misma en una propiedad estática interna, y no puede ser instanciada (o clonada) de la manera habitual de que una clase que no sea singleton. Singletons tiene un método de accesorios de instancia especial, que devuelve la propiedad de instancia interna, o crea una nueva instancia para devolver y almacenar. Ver Figura 1-2.
+
+
+Registro
+Un registro es una clase que puede almacenar y devolver las instancias de clases estándar. Piénselo como un gerente de equipo que trae a los jugadores del campo de juego y envía nuevos según lo requiera. Utilizamos clases de registro para administrar una cantidad finita de instancias de clase, de modo que no necesitamos mantener en las clases de reinstelación de las que el registro ya contiene instancias de. Otra forma de pensar en una clase de registro es que nos ayuda a tratar las clases normales como singletons, sin tener que hacer esas clases normales singletos. Podríamos encontrarnos en una situación en la que necesitamos dos instancias de una clase. Tal vez necesitemos conectarnos a dos bases de datos separadas, pero no queremos continuar con ellos, por lo que usamos un registro. Ver Figura 1-3.
+
+
+Fábrica.
+Una fábrica es una clase que proporciona una interfaz singular para crear cualquier número de instancias, sin necesidad de especificar el tipo de clase, las instancias deben ser. Una fábrica elegirá qué clase desea crear una instancia en función de la entrada o la lógica interna. Las fábricas son útiles cuando necesitamos realizar un trabajo de base de datos, pero podría estar tratando con cualquier número de controladores de base de datos diferentes. Utilizamos una clase de fábrica para darnos la clase de controlador correcta, asegurando que todos nuestros conductores se ajusten a una interfaz estándar. Ver Figura 1-4.
+
+
+
+Fábrica.
+Una fábrica es una clase que proporciona una interfaz singular para crear cualquier número de instancias, sin necesidad de especificar el tipo de clase, las instancias deben ser. Una fábrica elegirá qué clase desea crear una instancia en función de la entrada o la lógica interna. Las fábricas son útiles cuando necesitamos realizar un trabajo de base de datos, pero podría estar tratando con cualquier número de controladores de base de datos diferentes. Utilizamos una clase de fábrica para darnos la clase de controlador correcta, asegurando que todos nuestros conductores se ajusten a una interfaz estándar. Ver Figura 1-4.
+
+
+
+Creando nuestro propio marco.
+Puede que se pregunte por qué incluso tendríamos que crear nuestro propio marco, cuando ya hay muchas buenas opciones por ahí. La razón de esto es para que podamos obtener una comprensión de los principios subyacentes de MVC. A medida que aprendemos más sobre estos principios, creceremos en nuestra comprensión de por qué los excelentes marcos de MVC actualmente están disponibles para hacer las cosas como lo hacen. No estamos aprendiendo a crear una solicitud en el marco de Zend, o en CakePHP. Estamos aprendiendo cómo funciona la MVC, y por extensión, cómo se han construido estos marcos (o desviados de) la forma en que esperaríamos construir un marco MVC. Nuestro objetivo no es agregar a la lista de marcos disponibles para uso de producción. Nuestro objetivo es aprender cómo y por qué estos marcos hacen lo que hacen, para que podamos tomar decisiones informadas cuando se trata de seleccionar un marco para nuestro próximo gran proyecto.
+
+
+
+Metas
+Ya he mencionado nuestro primer gol, que es aprender. Por encima de todo, nuestro marco debe enseñarnos los conceptos centrales de que ningún marco de MVC puede hacer sin. Lo haremos primero mirando algunos componentes básicos, y más tarde crearemos una aplicación real sobre estos componentes. Lo importante es que los conceptos básicos de nuestro marco deben permanecer iguales sin importar las aplicaciones que construimos con ella. Esto inspirará naturalmente el segundo objetivo, que es crear un marco que sea fácil de configurar, y hace que las suposiciones mínimas sean posibles sobre las aplicaciones que construiremos con él. Esto se verá en la configuración de la aplicación más adelante, así como el código del sistema subyacente. Debemos tratar de habilitar solo las opciones de configuración donde tengan sentido. Nuestro último objetivo es crear una plataforma abstracta, lo suficientemente capaz de ejecutar en muchos entornos diferentes, pero se centró solo en los que podemos esperar en nuestro entorno de prueba. Para expresarlo de manera diferente, quiero que permitamos cualquier color, pero comience a pintarlo azul. Esto significa que debemos crear la infraestructura para poder interactuar con muchos tipos diferentes de bases de datos, pero para comenzar, escribiremos solo un controlador de base de datos. Significa que deberíamos crear la infraestructura para poder almacenar caché en una variedad de lugares, pero solo se preocupa por el primer tipo con el que trataremos. Quiero conseguirnos en la mentalidad de tratar con la raíz del problema, y todas las formas en que podemos resolverlo. Quiero que aprendamos a que se vea un verdadero marco MVC. Quiero que nos esforzemos por formas en que podemos permitir la flexibilidad cuando tenga más sentido, y la previsibilidad cuando tiene más sentido. Quiero que nos preocupe todo esto, mientras se ocupa de la mayor cantidad de casos concretos posible. Cuando tenemos un buen manejo de todo, podemos comenzar a suceder en múltiples entornos y servicios, pero hasta entonces, tenemos nuestros tres objetivos.

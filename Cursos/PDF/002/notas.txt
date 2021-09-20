@@ -1,0 +1,48 @@
+Fundación
+
+Comenzaremos nuestro marco al observar un código fundamental (enfocado por OOP) en el que se basarán los componentes básicos. Lo primero que veremos es cómo ejecutar código que se distribuye en varios archivos. También veremos qué hacer cuando nos encontramos con errores. Finalmente, crearemos un medio conveniente de clasificación y recuperación de metadatos de clase.
+
+Metas
+• Necesitamos desarrollar un medio para cargar clases automáticamente. Las clases deben ubicarse en función de sus nombres, y estos nombres deben traducirse en una jerarquía de carpetas.
+
+• Necesitamos comprender y definir subclases de excepción personalizados, para que podamos manejar los tipos de errores más comunes que podrían ocurrir.
+
+• También debemos definir un sistema de clases estáticas que incluyen métodos de utilidad para una serie de tipos de datos.
+
+• También deberíamos desarrollar un medio para identificar la estructura (y el uso previsto) de nuestras clases marco que depende del uso de comentarios de códigos especiales.
+
+Listado 2-1. Las cuatro funciones básicas requieren / incluyen.
+include("events.php");
+include_once("inflection.php");
+require("flash.php");
+require_once("twitter.php");
+
+
+La primera declaración buscará eventos.PHP dentro de la ruta de inclusión de PHP, y si existe, PHP cargará el archivo. Si no puede encontrar el archivo, emitirá una advertencia. La segunda afirmación es la misma que la primera, excepto que solo intentará cargar la inflexión del archivo.FP una vez. Puede ejecutar la segunda declaración tantas veces como desee, pero el archivo solo se cargará la primera vez. La tercera declaración es la misma que la primera, excepto que PHP emitirá un error fatal (si no lo detuvo, detendrá la ejecución del script). La cuarta declaración es la misma que la segunda, excepto que también emitirá un error fatal si el archivo no se puede encontrar. Esto significa que la carga de las clases es suficiente a pequeña escala, pero tiene los siguientes inconvenientes:
+
+• Siempre tendrá que requerir / incluir los archivos que contengan sus scripts antes de poder usarlos. Esto suena fácil al principio, pero en un sistema grande es en realidad un proceso bastante doloroso. Debe recordar el camino a cada guión y el momento adecuado para incluirlos.
+
+• Si opta por incluir todos los scripts al mismo tiempo (generalmente en la parte superior de cada archivo), estarán en alcance durante todo el tiempo que se está ejecutando el script. Primero, se cargarán antes del script que los requiera, y se evalúen completamente antes de que pueda suceder cualquier otra cosa. Esto está bien a pequeña escala, pero puede disminuir rápidamente los tiempos de carga de su página.
+
+
+Espacios de nombres
+Una nueva adición particularmente útil para PHP 5.3.0 es espacios de nombres. Los espacios de nombres permiten a los desarrolladores sandbox su código, fuera del espacio de nombres global, para evitar conflictos de nombres de clase y ayudar a organizar mejor su código. Haremos el uso de espacios de nombres en casi todas las clases que escribimos, y no están particularmente difíciles de usar. Considere el ejemplo presentado en el listado 2-2.
+
+
+
+Como mencioné anteriormente, los espacios de nombres ayudan a eliminar las clases del espacio de nombres global. El espacio de nombres se mantiene dentro del espacio de nombres global, por lo que debe permanecer único; Sin embargo, puede contener cualquier número de clases, lo que puede reutilizar los nombres de las clases que se encuentran en el espacio de nombres global, o dentro de otros espacios de nombres.
+
+------------------------------------------------
+■ ■ Nota: los espacios de nombres no son un requisito 
+del patrón de diseño de MVC, pero ciertamente ayudan 
+a evitar colisiones de nombres de clase y función. 
+Algunos marcos populares de MVC (como Symphony) ya 
+organizan sus clases en espacios de nombres.
+------------------------------------------------
+
+
+Carga lenta
+Podemos usar los métodos requeridos / incluir para cargar nuestras clases, o podemos usar otro método PHP nos da: la función SPL_AUTOLOAD_REGEISTER (). Esta función incorporada nos permite proporcionar nuestro propio código, usar como medio para cargar una clase basada en el nombre de la clase solicitada. El patrón que usaremos para encontrar archivos de clase será el nombre de la clase de caso con un separador de directorios entre cada palabra y .php al final. Por lo tanto, si necesitamos cargar la clase Framework \ Database \ Driver \ MySQL, buscaremos el marco de archivos / base de datos / controlador / mysql.php (suponiendo que nuestra carpeta Marco esté en la ruta de inclusión de PHP). Consulte Listado 2-3 por ejemplo.
+
+
+La primera llamada a SPL_AUTOOAD_REGISTER () le dice a PHP que use el método AutoLoad () para cargar un archivo de clase por nombre. La segunda convocatoria a SPL_AUTOOAD_REGISTER () le dice a PHP que use el método AutoAoader :: AutoLoad () para cargar un archivo de clase por nombre. La tercera y cuarta llamadas a SPL_AUTOUTOAD_REGISTER () le dicen a PHP que utilice el método de AutoLoad (), que pertenece a la clase en la que ocurran las llamadas SPL_AUTOOAD_REGISTER (), para cargar un archivo de clase por nombre. La función AutoLoad () Función primero divide la cadena devuelta de la función get_include_path () de PHP en directorios separados. Luego construye el nombre del archivo de destino dividiendo el nombre de la clase solicitada en la segunda, la tercera, la cuarta, y así sucesivamente, las letras mayúsculas y uniéndose las palabras juntas usando la constante Path_Separator. Si encuentra el archivo de destino dentro de cualquiera de los directorios de Rutas de $, incluirá la ejecución de la función de archivo y finalización con una declaración de retorno. Si el archivo no se encuentra al final del bucle, a través de $ rutas, se lanzará una excepción. Si no se tira ninguna excepción, puede asumir que se encontró un archivo que coincide con el nombre de la clase (en uno de los directorios en la ruta de inclusión) y se incluyó con éxito.

@@ -1,0 +1,36 @@
+Lectura 
+
+Capítulo 1: Introducción a MVC
+Capítulo 2: Fundación ///////////////////////////////// pagina 12
+Capítulo 3: Clase base
+Capítulo 4: Configuración
+Capítulo 5: Caching
+Capítulo 6: Registro.
+Capítulo 7: Enrutamiento.
+Capítulo 8: Plantillas.
+Capítulo 9: Bases de datos
+Capítulo 10: Modelos
+Capítulo 11: Pruebas.
+Capítulo 12: Estructura
+Capítulo 13: BootStrapping
+Capítulo 14: Registro e inicio de sesión.
+Capítulo 15: Búsqueda.
+Capítulo 16: Configuración.
+Capítulo 17: Compartir.
+Capítulo 18: Fotos
+Capítulo 19: Extendiendo
+Capítulo 20: Administración
+Capítulo 21: Pruebas.
+Capítulo 22: CodeIgniter: BootStrapping
+Capítulo 23: CodeIgniter: MVC
+Capítulo 24: CodeIgniter: Extendiendo.
+Capítulo 25: CodeIgniter: Pruebas
+Capítulo 26: Marco de Zend: BootStrapping
+Capítulo 27: Marco Zend: MVC
+Capítulo 28: Marco de Zend: Extendiendo
+Capítulo 29: Marco Zend: Pruebas.
+Capítulo 30: CakePHP: BootStrapping
+Capítulo 31: CakePHP: MVC.
+Capítulo 32: CakePHP: extendiéndose.
+Capítulo 33: CakePHP: Pruebas
+Apéndice A: Configuración de un servidor web.
