@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include "comp/head.php";?>
+   <?php include "comp/head.php";?>
    <body class="w3-light-grey">
       <!-- Top container -->
       <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
@@ -14,7 +14,7 @@
          </span>
       </div>
       <!-- Sidebar/menu -->
-   <?php include "comp/nav.php";?>
+      <?php include "comp/nav.php";?>
       <!-- Overlay effect when opening sidebar on small screens -->
       <div class="w3-overlay w3-hide-large w3-animate-opacity" id="myOverlay" onclick="w3_close()" style="cursor:pointer" title="close side menu">
       </div>
@@ -30,12 +30,20 @@
                </b>
             </h5>
          </header>
+         <!-- ///////////////////////////////////////////////////////////// -->
+         <?php function navegacion($value = '')
+{
+   $valor = $value;
+   echo include_once "{$value}.php";
+}?>
+         <?php if (isset($_GET['views'])) {
 
-         <!-- Footer -->
+   navegacion($_GET['views']);
 
-         <!-- End page content -->
+}?>
+         <!-- ///////////////////////////////////////////////////////////// -->
       </div>
-      <script src="<?=SERVERURL;?>/vista/js/js.js" type="text/javascript">
+      <script src="vista/js/js.js" type="text/javascript">
       </script>
    </body>
 </html>

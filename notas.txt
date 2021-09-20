@@ -1,5 +1,12 @@
-
+////////////////////////////
 sudo /opt/lampp/lampp start
+////////////////////////////
+
+
+Referencias 
+https://www.studentstutorial.com/php/mvc/intro
+
+https://www.youtube.com/playlist?list=PLH_tVOsiVGzlJtytLjp6h6hRpZCxl77-n
 
 https://www.apachefriends.org/faq_linux.html
 
