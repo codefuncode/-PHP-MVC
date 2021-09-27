@@ -31,7 +31,7 @@
             </h5>
          </header>
          <!-- ///////////////////////////////////////////////////////////// -->
-         <?php function navegacion($value = '')
+         <?php function navegacion($value)
 {
    $valor = $value;
    echo include_once "{$value}.php";

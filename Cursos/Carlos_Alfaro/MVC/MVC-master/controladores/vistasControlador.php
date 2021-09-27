@@ -22,3 +22,8 @@ class vistasControlador extends vistasModelo
       return $respuesta;
    }
 }
+
+function fdadjsuhgkdjsghfdsdfskghfdflkghdfknbvkldghjfdvdlk($value = '')
+{
+   // code...
+}
