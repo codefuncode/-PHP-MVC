@@ -1,0 +1,20 @@
+El patrón Modelo-Vista-Controlador (MVC), originalmente formulado a fines de la década de 1970. Es un patrón de diseño de la aplicación que separa los datos de la aplicación y la lógica empresarial (modelo) de la presentación (vista). El controlador media entre los modelos y las vistas.
+Ventajas:
+
+Las ventajas de esta arquitectura son la reutilización del código, la seguridad de los datos y un mejor rendimiento de las aplicaciones. En teoría, un sistema MVC bien desarrollado debería permitir que un desarrollador front-end y un desarrollador back-end trabajen en el mismo sistema sin interferir, compartir o editar archivos.
+Representación visual para el flujo de datos de la arquitectura MVC representada a continuación:
+
+
+Modelo:
+
+Modelo es el nombre que se le da al componente que se comunicará con la base de datos para manipular los datos.
+Actúa como un puente entre el componente View y el componente Controller en la arquitectura general.
+Este es el responsable de gestionar los datos. Almacena y recupera entidades utilizadas por una aplicación, generalmente de una base de datos, y contiene la lógica implementada por la aplicación.
+Vista:
+
+La vista se encarga de mostrar los datos proporcionados por el modelo en un formato específico. Este es responsable de mapear gráficos en un dispositivo. Una vista se adjunta a un modelo y muestra su contenido en la superficie de visualización y formatea los datos que se presentarán al usuario en una aplicación web como una salida html.
+Controlador:
+
+Un controlador es el medio por el cual el usuario interactúa con la aplicación. Un controlador acepta la entrada del usuario e instruye al modelo y la vista para realizar acciones basadas en esa entrada.
+Maneja el modelo y las capas de vista para trabajar juntos. El controlador recibe una solicitud del cliente, invoca el modelo para realizar las operaciones solicitadas y envía los datos a la Vista.
+El controlador es responsable de mapear la acción del usuario final con la respuesta de la aplicación.

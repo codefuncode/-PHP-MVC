@@ -1,0 +1,35 @@
+controllers
+
+    index.php
+
+    hello.php
+
+models
+
+    index_model.php
+
+views
+
+    hello.php
+
+    index.php
+
+    insert_index.php
+
+    update_index.php
+
+    view_index.php
+
+libs
+
+    Bootstrap.php
+
+    Controller.php
+
+    Database.php
+
+    Model.php
+
+    Session.php
+
+    View.php
