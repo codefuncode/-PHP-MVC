@@ -1,0 +1,5 @@
+En este ejemplo usamos Modelos, Vistas, Estructura del controlador para insertar datos en la base de datos.
+
+Para insertar datos en la base de datos primero tenemos que crear un archivo de controlador.
+
+controlador / index.php

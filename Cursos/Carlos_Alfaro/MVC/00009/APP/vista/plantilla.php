@@ -31,7 +31,12 @@
             </h5>
          </header>
 
-
+<?php
+// // include "config/config.php";
+// // include "controlador/vista_controlador.php";
+// $cargarPlantilla = new vistaControlador();
+// $cargarPlantilla->obtener_vistas_controlador();
+;?>
       </div>
       <script src="./vista/js/js.js" type="text/javascript">
       </script>

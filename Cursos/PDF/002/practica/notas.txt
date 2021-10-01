@@ -1,0 +1,18 @@
+
+Espacios de nombres ¶
+Tabla de contenidos ¶
+
+001 Resumen de los espacios de nombres
+002 Definir espacios de nombres
+003 Declarar subespacios de nombres
+004 Definir varios espacios de nombres en un mismo fichero
+005 Uso de los espacios de nombres: lo básico
+006 Espacios de nombres y características dinámicas del lenguaje
+007 La palabra reservada namespace y la constante __NAMESPACE__
+008 Uso de los espacios de nombres: apodar/importar
+009 Espacio global
+010 Utilizar espacios de nombres: una alternativa a funciones/constantes globales
+011 Reglas de resolución de nombres
+012 P+F: cosas que es necesario saber sobre los espacios de nombres
+
+https://www.php.net/manual/es/language.namespaces.php
