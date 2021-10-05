@@ -1,0 +1,8 @@
+<ifModule mod_rewrite.c>
+		Option -Multiviews
+		RewriteEngine On
+		RewriteBase /localhost/Proyecto/CODEFUNCODE/PHP_MVC/Cursos/render2web/00003/APP/public
+		RewriteCond %{REQUEST_FILENAME} -d
+		RewriteCond %{REQUEST_FILENAME} -f
+		RewriteRule ^(.+) index.php?url=$1 [QSA,L]
+</ifModule>

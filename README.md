@@ -16,3 +16,7 @@ Referencias
 - [Carlos Alfaro](https://www.youtube.com/playlist?list=PLH_tVOsiVGzlJtytLjp6h6hRpZCxl77-n)
 
 - [render2web](https://www.youtube.com/watch?v=dRLRPi6ClMA&list=PLty0cFLf07jXQA5_P9rDMWjpEet2wTXN1)
+
+- [jonmircha](https://www.youtube.com/playlist?list=PLvq-jIkSeTUZWYh18UN6Q9rfkoqy5A9Xn)
+
+
