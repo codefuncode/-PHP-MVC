@@ -1,0 +1,16 @@
+
+# https://stackoverflow.com/questions/25423141/what-exactly-does-the-multiviews-options-in-htaccess
+
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteBase "/Proyecto/CODEFUNCODE/PHP_MVC/Cursos/render2web/00003/APP/public"
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteRule ^(.+)$ index.php?valor=$1 [L,QSA]
+
+</IfModule>
+
