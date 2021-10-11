@@ -1,7 +1,8 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
-https://www.youtube.com/watch?v=a44MbhzNhOY&list=PLty0cFLf07jXQA5_P9rDMWjpEet2wTXN1&index=4
+https://www.youtube.com/watch?v=Vtk6htmBSJY&list=PLty0cFLf07jXQA5_P9rDMWjpEet2wTXN1&index=6
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+localhost/Proyecto/CODEFUNCODE/PHP_MVC/Cursos/render2web/00005/APP/
 
 # https://stackoverflow.com/questions/25423141/what-exactly-does-the-multiviews-options-in-htaccess
 
@@ -13,6 +14,7 @@ https://www.youtube.com/watch?v=a44MbhzNhOY&list=PLty0cFLf07jXQA5_P9rDMWjpEet2wT
 # https://devdocs.io/apache_http_server/mod/mod_rewrite#rewritecond
 
 <IfSection mod_rewrite.c>
+
    RewriteEngine On
    RewriteBase "/Proyecto/CODEFUNCODE/PHP_MVC/Cursos/render2web/00003/APP/public"
    RewriteCond %{REQUEST_FILENAME} !-d
