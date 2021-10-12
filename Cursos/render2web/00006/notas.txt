@@ -2,7 +2,7 @@
 https://www.youtube.com/watch?v=Vtk6htmBSJY&list=PLty0cFLf07jXQA5_P9rDMWjpEet2wTXN1&index=6
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-localhost/Proyecto/CODEFUNCODE/PHP_MVC/Cursos/render2web/00005/APP/
+localhost/Proyecto/CODEFUNCODE/PHP_MVC/Cursos/render2web/00006/APP/
 
 # https://stackoverflow.com/questions/25423141/what-exactly-does-the-multiviews-options-in-htaccess
 

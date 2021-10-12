@@ -34,3 +34,5 @@ Capítulo 31: CakePHP: MVC.
 Capítulo 32: CakePHP: extendiéndose.
 Capítulo 33: CakePHP: Pruebas
 Apéndice A: Configuración de un servidor web.
+
+Libro aqui https://www.apress.com/gp/book/9781430241652
