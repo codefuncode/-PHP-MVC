@@ -19,4 +19,27 @@ Referencias
 
 - [jonmircha](https://www.youtube.com/playlist?list=PLvq-jIkSeTUZWYh18UN6Q9rfkoqy5A9Xn)
 
+- [anantgarg](http://anantgarg.com/2009/03/13/write-your-own-php-mvc-framework-part-1/)
+
+- [tutsplus](https://code.tutsplus.com/tutorials/create-a-php5-framework-part-1--net-520)
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+- []()
+
+
 
